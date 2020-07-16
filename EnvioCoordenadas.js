@@ -2,7 +2,7 @@ var Contador = 3;
 
 function EnviaCoordenasQualitas() {
     var request = new XMLHttpRequest();
-    request.open("POST", "http://qa.qualitas.com.mx:7005/PMQ-API-MOVIL/rest/grua/coordenadaExterna", false);
+    request.open("POST", "https://qa.qualitas.com.mx:7005/PMQ-API-MOVIL/rest/grua/coordenadaExterna", false);
     request.setRequestHeader("Authorization", "Basic cmVzdGdhcHA6U1JZejY6U3BVXA==");
     request.setRequestHeader("Host", "qa.qualitas.com.mx");
     request.setRequestHeader("Content-Type", "application/json");
