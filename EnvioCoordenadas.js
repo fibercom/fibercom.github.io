@@ -9,7 +9,7 @@ function MensajeLog(text) {
 function EnviaCoordenasQualitas() {
     var request = new XMLHttpRequest();
 
-    request.open("POST", "https://qa.qualitas.com.mx:7005/PMQ-API-MOVIL/rest/grua/coordenadaExterna", true);
+    request.open("POST", "http://qa.qualitas.com.mx:7005/PMQ-API-MOVIL/rest/grua/coordenadaExterna", true);
     request.setRequestHeader("Authorization", "Basic cmVzdGdhcHA6U1JZejY6U3BVXA==");
     //request.setRequestHeader("Host", "qa.qualitas.com.mx");
     request.setRequestHeader("Content-Type", "application/json");
@@ -28,13 +28,13 @@ function EnviaCoordenasQualitas() {
     //request.setRequestHeader("Content-Length", data.length);
     //MensajeLog(`Logitud de los datos: ${data.length}`);
     //MensajeLog(`Datos: ${data}`);
-    request.send(data);
-    request.onload = function () {
-        if (request.status != 200) { // analyze HTTP status of the response
-            MensajeLog(`Error ${request.status}: ${request.statusText}`); // e.g. 404: Not Found
-        } else { // show the result
-            MensajeLog(`Done, got ${request.response.length} bytes`); // response is the server
+    request.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            MensajeLog (this.responseText);
         }
+    };
+    request.send(data);
+    
     };
 
     request.onprogress = function (event) {
@@ -62,7 +62,7 @@ function EnviaCoordenasQualitas() {
 
 
 $(document).ready(function () {
-    MensajeLog("Inicio Exitoso V8");
+    MensajeLog("Inicio Exitoso V9");
     EnviaCoordenasQualitas();
     var CicloEnvio = setInterval(EnviaCoordenasQualitas, 30000);
     //MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
