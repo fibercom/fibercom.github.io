@@ -30,23 +30,14 @@ function EnviaCoordenasQualitas() {
     //MensajeLog(`Datos: ${data}`);
     request.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            MensajeLog (this.responseText);
+            MensajeLog(this.responseText);
         }
     };
     request.send(data);
-    
-    };
 
-    request.onprogress = function (event) {
-        if (event.lengthComputable) {
-            MensajeLog(`Received ${event.loaded} of ${event.total} bytes`);
-        } else {
-            MensajeLog(`Received ${event.loaded} bytes`); // no Content-Length
-        }
 
-    };
 
-    MensajeLog.onerror = function () {
+    request.onerror = function () {
         MensajeLog("Request failed");
     };
 
@@ -62,7 +53,7 @@ function EnviaCoordenasQualitas() {
 
 
 $(document).ready(function () {
-    MensajeLog("Inicio Exitoso V9");
+    MensajeLog("Inicio Exitoso V10");
     EnviaCoordenasQualitas();
     var CicloEnvio = setInterval(EnviaCoordenasQualitas, 30000);
     //MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
