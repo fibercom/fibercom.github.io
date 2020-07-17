@@ -1,7 +1,8 @@
-var Contador = 3;
+var Contador = 1;
 
 function MensajeLog(text) {
-    $("#Bitacora").prepend(text + "<br/>");
+    $("#Bitacora").prepend(Contador + ": " + text + "<br/>");
+    Contador++;
 }
 
 
@@ -25,8 +26,8 @@ function EnviaCoordenasQualitas() {
     }
     );
     //request.setRequestHeader("Content-Length", data.length);
-    MensajeLog(`Logitud de los datos: ${data.length}`);
-    MensajeLog(`Datos: ${data}`);
+    //MensajeLog(`Logitud de los datos: ${data.length}`);
+    //MensajeLog(`Datos: ${data}`);
     request.send(data);
     request.onload = function () {
         if (request.status != 200) { // analyze HTTP status of the response
@@ -54,14 +55,14 @@ function EnviaCoordenasQualitas() {
     // view request status
     //alert(request.status);
     MensajeLog(`Datos: ${request.status}`);
-    MensajeLog ( Contador + ".- Resultado Post.");
-    MensajeLog (request.responseText);
+    MensajeLog(Contador + ".- Resultado Post.");
+    MensajeLog(request.responseText);
     Contador++;
 }
 
 
 $(document).ready(function () {
-    MensajeLog("1.- Inicio Exitoso V5");
+    MensajeLog("1.- Inicio Exitoso V6");
     var CicloEnvio = setInterval(EnviaCoordenasQualitas, 15000);
-    MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
+    //MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
 });
