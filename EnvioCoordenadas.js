@@ -62,7 +62,7 @@ function EnviaCoordenasQualitas() {
 
 
 $(document).ready(function () {
-    MensajeLog("Inicio Exitoso V7");
+    MensajeLog("Inicio Exitoso V8");
     EnviaCoordenasQualitas();
     var CicloEnvio = setInterval(EnviaCoordenasQualitas, 30000);
     //MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
