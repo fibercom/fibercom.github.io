@@ -39,6 +39,6 @@ function EnviaCoordenasQualitas() {
 
 $(document).ready(function () {
     MensajeLog("1.- Inicio Exitoso");
-    var CicloEnvio = setInterval(EnviaCoordenasQualitas, 5000);
+    var CicloEnvio = setInterval(EnviaCoordenasQualitas, 15000);
     MensajeLog("2.- Ciclo para envío de datos iniciado.");
 });
