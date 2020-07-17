@@ -28,6 +28,29 @@ function EnviaCoordenasQualitas() {
     MensajeLog(`Logitud de los datos: ${data.length}`);
     MensajeLog(`Datos: ${data}`);
     request.send(data);
+    request.onload = function () {
+        if (request.status != 200) { // analyze HTTP status of the response
+            MensajeLog(`Error ${request.status}: ${request.statusText}`); // e.g. 404: Not Found
+        } else { // show the result
+            MensajeLog(`Done, got ${request.response.length} bytes`); // response is the server
+        }
+    };
+
+    request.onprogress = function (event) {
+        if (event.lengthComputable) {
+            MensajeLog(`Received ${event.loaded} of ${event.total} bytes`);
+        } else {
+            MensajeLog(`Received ${event.loaded} bytes`); // no Content-Length
+        }
+
+    };
+
+    MensajeLog.onerror = function () {
+        MensajeLog("Request failed");
+    };
+
+
+
     // view request status
     //alert(request.status);
     MensajeLog(`Datos: ${request.status}`);
