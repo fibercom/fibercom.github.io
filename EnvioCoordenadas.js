@@ -54,15 +54,15 @@ function EnviaCoordenasQualitas() {
 
     // view request status
     //alert(request.status);
-    MensajeLog(`Datos: ${request.status}`);
-    MensajeLog(Contador + ".- Resultado Post.");
-    MensajeLog(request.responseText);
-    Contador++;
+    //MensajeLog(`Datos: ${request.status}`);
+    //MensajeLog(Contador + ".- Resultado Post.");
+    //MensajeLog(request.responseText);
+    //ontador++;
 }
 
 
 $(document).ready(function () {
-    MensajeLog("1.- Inicio Exitoso V6");
-    var CicloEnvio = setInterval(EnviaCoordenasQualitas, 15000);
+    MensajeLog("Inicio Exitoso V7");
+    var CicloEnvio = setInterval(EnviaCoordenasQualitas, 30000);
     //MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
 });
