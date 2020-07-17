@@ -9,7 +9,7 @@ function MensajeLog(text) {
 function EnviaCoordenasQualitas() {
     var request = new XMLHttpRequest();
 
-    request.open("POST", "http://qa.qualitas.com.mx:7005/PMQ-API-MOVIL/rest/grua/coordenadaExterna", true);
+    request.open("POST", "https://qa.qualitas.com.mx:7005/PMQ-API-MOVIL/rest/grua/coordenadaExterna", true);
     request.setRequestHeader("Authorization", "Basic cmVzdGdhcHA6U1JZejY6U3BVXA==");
     //request.setRequestHeader("Host", "qa.qualitas.com.mx");
     request.setRequestHeader("Content-Type", "application/json");
@@ -53,7 +53,7 @@ function EnviaCoordenasQualitas() {
 
 
 $(document).ready(function () {
-    MensajeLog("Inicio Exitoso V10");
+    MensajeLog("Inicio Exitoso V11");
     EnviaCoordenasQualitas();
     var CicloEnvio = setInterval(EnviaCoordenasQualitas, 30000);
     //MensajeLog("2.- Ciclo para envío de datos iniciado a 15 segundos.");
